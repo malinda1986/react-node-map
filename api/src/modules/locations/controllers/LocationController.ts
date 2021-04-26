@@ -19,17 +19,17 @@ export class LocationController {
 
   @Get("")
   async filter(
-    @QueryParam("type") type: string,
-    @QueryParam("name") name: string
+    @QueryParam("status") status: [string],
+    @QueryParam("address") address: string
   ) {
     try {
       const filter = {
-        name,
-        type,
+        address,
+        status,
       };
       const schema = Joi.object({
-        name: Joi.string(),
-        type: Joi.string().valid("approved", "request", "suspended", "expired"),
+        address: Joi.string(),
+        status: Joi.array().items((Joi.string().valid("REQUESTED", "EXPIRED", "SUSPEND", "APPROVED")))
       });
       await schema.validateAsync(filter);
       const response = await this.location_service.filter(filter);

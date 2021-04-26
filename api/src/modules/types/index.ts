@@ -1,13 +1,14 @@
-
 export type ITruck = {
-    id: number,
-    first_name: string
-    last_name: string,
-    age: number;
-    profile: string
-}
+  id: number;
+  location: { lat: number; lng: number };
+  type: string;
+  address: string;
+  foodItem: string;
+  name: string;
+  status: string;
+};
 
 export type IFilter = {
-    name?: string,
-    type?: string,
-}
+  address?: string;
+  status?: [string];
+};

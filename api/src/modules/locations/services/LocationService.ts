@@ -13,36 +13,19 @@ export default class UserService {
   public async filter(filter: IFilter): Promise<Array<ITruck>> {
     const locations = await this.location_repo.get();
     let trucks = locations;
-    const { name, type } = filter;
-    if (type) {
-      trucks = locations.filter((location) => (location.status = type));
+    const { address, status } = filter;
+    console.log(filter);
+    if (status) {
+      trucks = locations.filter((location) => status.includes(location.status));
     }
-    if (name) {
-      trucks = fuzzSearch
-        .go(name, locations, {
-          keys: ["name", "foodItem"],
-          // Create a custom combined score to sort by. -100 to the desc score makes it a worse match
-          scoreFn: (a) =>
-            Math.max(
-              a[0] ? a[0].score : -1000,
-              a[1] ? a[1].score - 100 : -1000
-            ),
-        })
-        .map((search) => search.obj);
+    if (address) {
+      trucks = locations.filter((location) => location.id === address);
     }
-    if (name && type) {
-      trucks = locations.filter((location) => (location.status = type));
-      trucks = fuzzSearch
-        .go(name, locations, {
-          keys: ["name", "foodItem"],
-          // Create a custom combined score to sort by. -100 to the desc score makes it a worse match
-          scoreFn: (a) =>
-            Math.max(
-              a[0] ? a[0].score : -1000,
-              a[1] ? a[1].score - 100 : -1000
-            ),
-        })
-        .map((search) => search.obj);
+    if (address && status) {
+      trucks = locations.filter(
+        (location) =>
+          status.includes(location.status) && location.id === address
+      );
     }
     return trucks;
   }
