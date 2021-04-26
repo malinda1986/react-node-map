@@ -1,12 +1,10 @@
 
 ## Getting Started
 
-Clone the project from ``git clone https://github.com/malinda1986/user-manage.git``
-
 ## Built With
 - typescript
 - React 
-- ant design
+- Material UI
 - create-react-app
 - express
 - routing-controllers
@@ -28,5 +26,9 @@ Clone the project from ``git clone https://github.com/malinda1986/user-manage.gi
 
 ### Notes
 - Frontend can be optimized further ( make ui components more re-usable)
-- I didn't get enough time due to office work
-because of that could not work on the mobile app (also I do not have much experience with react native, so it will take more tme), 
+- API validation using joi
+- Data cached in server side and , its not the best option as it could grow, done the basic filtering for the data set, but can use libraries like fuzzysort, which is optimize for string search and can search 100k+ data set less than few milliseconds
+- typedi for DI Container
+- FE and BE can deploy as docker containers
+- FE with react hooks
+- I worked around 8-10hrs for this project
