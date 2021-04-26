@@ -114,7 +114,7 @@ const Header = ({
                 value={optionList.filter(
                   (each: any) => each.value === selectedAddress
                 )}
-                isDisabled={checkBoxValues.length > 0}
+                //isDisabled={checkBoxValues.length > 0}
               />
             </div>
             <div>
@@ -123,7 +123,7 @@ const Header = ({
                   checked={Object.values(checkBoxValues).includes(
                     status.requested
                   )}
-                  disabled={selectedAddress}
+                  //disabled={selectedAddress}
                   color="primary"
                   inputProps={{ "aria-label": "secondary checkbox" }}
                   onChange={() => changeSelectBox(status.requested)}
@@ -137,7 +137,7 @@ const Header = ({
                   checked={Object.values(checkBoxValues).includes(
                     status.expired
                   )}
-                  disabled={selectedAddress}
+                  //disabled={selectedAddress}
                   color="primary"
                   inputProps={{ "aria-label": "secondary checkbox" }}
                   onChange={() => changeSelectBox(status.expired)}
@@ -154,7 +154,7 @@ const Header = ({
                   checked={Object.values(checkBoxValues).includes(
                     status.suspended
                   )}
-                  disabled={selectedAddress}
+                 // disabled={selectedAddress}
                   color="primary"
                   inputProps={{ "aria-label": "secondary checkbox" }}
                   onChange={() => changeSelectBox(status.suspended)}
@@ -171,7 +171,7 @@ const Header = ({
                   checked={Object.values(checkBoxValues).includes(
                     status.approved
                   )}
-                  disabled={selectedAddress}
+                  //disabled={selectedAddress}
                   color="primary"
                   inputProps={{ "aria-label": "secondary checkbox" }}
                   onChange={() => changeSelectBox(status.approved)}
