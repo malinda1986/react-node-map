@@ -1,0 +1,53 @@
+.header-content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  &__select-box {
+    width: 100%;
+    max-width: 250px;
+  }
+  &__input-box {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+.MuiCard-root {
+  background-color: #ffffffc7;
+}
+
+.desktop-ui-display {
+  display: flex;
+}
+
+.mobile-ui-display {
+  display: none;
+}
+.check-box-container {
+  display: flex;
+  align-items: center;
+  &__dot{
+    background: #fa8b24;
+    animation: blink 5s infinite;
+    margin-left: 10px;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@media screen and (max-width: 700px) {
+  .desktop-ui-display {
+    display: none;
+  }
+
+  .mobile-ui-display {
+    display: flex;
+  }
+}
